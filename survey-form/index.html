@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 5. Certification Project (Survey Form) -->
+    <title>Website Survey Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="survey-form">
+        <main>
+            <h1 id="title">Website Survey Form</h1>
+            <p id="description">Let us know how we can improve our website</p>
+            <form id="survey-form">
+                <fieldset>
+                    <label for="name" id="name-label">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <label for="email" id="email-label">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your Email" required>
+                    <label for="number" id="number-label">Age:</label>
+                    <input type="number" id="number" min="18" max="120" placeholder="Age" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Gender:</legend>
+                    <label for="male" id="male-label">
+                        <input type="radio" name="gender" id="male" value="male" checked>Male
+                    </label>
+                    <label for="female" id="female-label">
+                        <input type="radio" name="gender" id="female" value="female">Female
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <label for="dropdown" id="dropdown-label">How did you hear about this website?</label>
+                    <select id="dropdown">
+                        <option>Select an option</option>
+                        <option>Social Media</option>
+                        <option>Advertising</option>
+                        <option>Search Engine</option>
+                        <option>Friend</option>
+                        <option>Other</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>What browser do you use?</legend>
+                    <label for="google-chrome" id="google-chrome-label">
+                        <input type="checkbox" name="browser" id="google-chrome" value="chrome">Google Chrome
+                    </label>
+                    <label for="firefox" id="firefox-label">
+                        <input type="checkbox" name="browser" id="firefox" value="firefox">Firefox
+                    </label>
+                    <label for="ie" id="ie-label">
+                        <input type="checkbox" name="browser" id="ie" value="ie">IE
+                    </label>
+                    <label for="safari" id="safari-label">
+                        <input type="checkbox" name="browser" id="safari" value="safari">Safari
+                    </label>
+                    <label for="opera" id="opera-label">
+                        <input type="checkbox" name="browser" id="opera" value="opera">Opera
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <label for="comments" id="comments-label">Comments or Suggestions:</label>
+                    <textarea name="comments" id="comments" rows="4" cols="28" placeholder="Enter your comments..."></textarea>
+                    <button type="submit" id="submit">Submit</button>
+                </fieldset>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

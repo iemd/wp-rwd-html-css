@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 14. Certification Project (Technical Documentation Page) -->
+    <title>Technical Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>
+            <h1>CSS Documentation</h1>
+        </header>
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#Basic_CSS">Basic CSS</a></li>
+            <li><a class="nav-link" href="#CSS_Colors">CSS Colors</a></li>
+            <li><a class="nav-link" href="#CSS_Box_Model">CSS Box Model</a></li>
+            <li><a class="nav-link" href="#CSS_Flexbox">CSS Flexbox</a></li>
+            <li><a class="nav-link" href="#Typography">Typography</a></li>
+            <li><a class="nav-link" href="#Accessibility">Accessibility</a></li>
+            <li><a class="nav-link" href="#CSS_Pseudo_Selectors_&_Elements">CSS Pseudo Selectors & Elements</a></li>
+            <li><a class="nav-link" href="#Intermediate_CSS">Intermediate CSS</a></li>
+            <li><a class="nav-link" href="#Responsive_Web_Design">Responsive Web Design</a></li>
+            <li><a class="nav-link" href="#CSS_Variables">CSS Variables</a></li>
+            <li><a class="nav-link" href="#CSS_Grid">CSS Grid</a></li>
+            <li><a class="nav-link" href="#CSS_Animation">CSS Animation</a></li>
+            <li><a class="nav-link" href="#CSS_Transforms">CSS Transforms</a></li>
+            <li><a class="nav-link" href="#Reference">Reference</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>
+                <h2>Introduction<h2>
+            </header>
+            <h3>What is CSS?</h3>
+            <p>CSS is a <b>style sheet language</b> used to describe the presentation of a document written in a markup
+                language like HTML. It's the key to making web pages look good!</p>
+            <h3>Why Use CSS?</h3>
+            <ul>
+                <li><b>Separation of Content and Presentation:</b> CSS lets you keep your HTML (the content) separate
+                    from your styling (how it looks). This makes your code cleaner and easier to maintain.</li>
+                <li><b>Consistency:</b> You can apply the same styles to multiple pages, ensuring a consistent look and
+                    feel across your website.</li>
+                <li><b>Flexibility:</b> CSS gives you fine-grained control over fonts, colors, layout, and more.</li>
+                <li><b>Responsiveness:</b> CSS helps you adapt your website's design to different screen sizes
+                    (desktops, tablets, phones).</li>
+            </ul>
+            <h3>How Does CSS Work?</h3>
+            <p>CSS uses selectors to target HTML elements and properties to define how those elements should be styled.
+            </p>
+            <ul>
+                <li><b>Selectors:</b> Identify the HTML element(s) you want to style (e.g., a paragraph, a heading, a
+                    specific class of elements).</li>
+                <li><b>Properties:</b> Define the specific style attributes you want to change (e.g., <code
+                        class="inline">color</code>, <code class="inline">font-size</code>, <code
+                        class="inline">background-color</code>).</li>
+                <li><b>Values:</b> Specify the value for each property (e.g., <code class="inline">color: blue;</code>,
+                    <code class="inline">font-size: 16px;</code>).
+                </li>
+            </ul>
+            <code>/* Select all paragraph elements */
+p {
+  color: #333; /* Dark gray text */
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Select the element with the ID "main-heading" */
+#main-heading {
+  font-size: 2em;
+  color: navy;
+}</code>
+        </section>
+        <section class="main-section" id="Basic_CSS">
+            <header>
+                <h2>Basic CSS</h2>
+            </header>
+            <p>
+                CSS is the language you use to style HTML elements. Think of HTML as the structure of your webpage (the
+                bones), and CSS as the paint, clothing, and accessories that make it look good (the appearance).
+            </p>
+            <h3>How to Add CSS to Your HTML</h3>
+            <ul>
+                <li><b>Inline Styles:</b> Apply styles directly to individual HTML elements using the style attribute.
+                    (Not recommended for large
+                    projects)<code>&lt;p style="color: red;"&gt;This text is red.&lt;/p&gt;</code></li>
+                <li><b>Internal Style Sheet:</b> Add a <code class="inline">&lt;style&gt;</code> tag within the <code
+                        class="inline">&lt;head&gt;</code> of your HTML document.
+                    <code>&lt;head&gt;
+  &lt;style&gt;
+    p { color: blue; }
+  &lt;/style&gt;
+&lt;/head&gt;</code>
+                </li>
+                <li><b>External Style Sheet:</b> Create a separate .css file and link to it in your HTML. (Best practice
+                    for most projects)
+                    <code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code>
+                </li>
+            </ul>
+            <h3>Selectors</h3>
+            <p>Selectors are the patterns you use to choose which HTML elements you want to style. Here are some common
+                types:</p>
+            <ul>
+                <li><b>Element Selector:</b> Selects all elements of a specific type.
+                    <code>p { /* Styles all &lt;p&gt; elements */
+  color: blue;
+}
+h1 { /* Styles all &lt;h1&gt; elements */
+  font-size: 32px;
+}</code>
+                </li>
+                <li><b>Class Selector:</b> Selects elements with a specific class attribute. Use a dot (.) before the
+                    class name.<code>&lt;p class="highlight"&gt;This paragraph is highlighted.&lt;/p&gt;</code><code>.highlight {
+  background-color: yellow;
+}</code></li>
+                <li><b>ID Selector:</b> Selects the element with a specific ID attribute. Use a hash (#) before the ID
+                    name. IDs should be unique within a
+                    document.<code>&lt;div id="footer"&gt;This is the footer.&lt;/div&gt;</code><code>#footer {
+  text-align: center;
+}</code></li>
+                <li><b>Universal Selector:</b> Selects all elements on the page. Use an asterisk (*). Often used for
+                    resetting default styles.<code>* {
+  margin: 0;
+  padding: 0;
+}</code></li>
+                <li><b>Attribute Selector:</b> Selects elements based on their attributes.<code>a[href="https://www.example.com"] { /* Styles links to example.com */
+  color: green;
+}</code></li>
+                <li><b>Pseudo-classes:</b> Selects elements based on their state (e.g., when the mouse hovers over
+                    them).<code>a:hover {
+  color: red;
+}</code></li>
+                <li><b>Combinators:</b> Allow you to select elements based on their relationship to other elements
+                    (e.g., child, descendant, adjacent sibling).<code>div p { /* Styles all &lt;p&gt; elements that are inside &lt;div&gt; elements */
+  font-style: italic;
+}</code></li>
+            </ul>
+            <h3>Properties</h3>
+            <p>Properties are the specific styles you want to apply to the selected elements. Examples:</p>
+            <ul>
+                <li><code class="inline">color</code> : Text color</li>
+                <li><code class="inline">background-color</code> : Background color</li>
+                <li><code class="inline">font-size</code> : Font size</li>
+                <li><code class="inline">font-family</code> : Font family</li>
+                <li><code class="inline">margin</code> : Space around an element</li>
+                <li><code class="inline">padding</code> : Space inside an element</li>
+                <li><code class="inline">width</code> : Element width</li>
+                <li><code class="inline">height</code> : Element height</li>
+                <li><code class="inline">display</code> : How an element is displayed (e.g., block, inline, flex)</li>
+            </ul>
+            <h3>Values</h3>
+            <p>Values are what you assign to CSS properties. Examples:</p>
+            <ul>
+                <li><code class="inline">red</code>, <code class="inline">blue</code>, <code class="inline">green</code>
+                    (colors)</li>
+                <li><code class="inline">16px</code>, <code class="inline">2em</code>, <code class="inline">10%</code>
+                    (lengths)</li>
+                <li><code class="inline">Arial</code>, <code class="inline">Times New Roman</code> (font families)</li>
+                <li><code class="inline">auto</code> (automatic sizing)</li>
+            </ul>
+        </section>
+        <section class="main-section" id="CSS_Colors">
+            <header>
+                <h2>CSS Colors</h2>
+            </header>
+            <p>CSS colors are used to style the text, backgrounds, and other elements on a web page. Here's a quick
+                overview:</p>
+            <h3>Ways to define colors in CSS:</h3>
+            <ul>
+                <li><b>Named Colors:</b> These are predefined color names, like <code class="inline">red</code>, <code
+                        class="inline">blue</code>, <code class="inline">green</code>, etc.</li>
+                <li><b>Hex Codes:</b> A six-digit hexadecimal representation of a color (e.g., <code
+                        class="inline">#FF0000</code> for red).</li>
+                <li><b>RGB Values:</b> Uses the <code class="inline">rgb()</code> function to define a color based on
+                    the amount of red, green, and blue (e.g., <code class="inline">rgb(255, 0, 0)</code> for red).</li>
+                <li><b>HSL Values:</b> Uses the <code class="inline">hsl()</code> function, which defines a color based
+                    on hue, saturation, and lightness.</li>
+            </ul>
+            <h3>How to use colors in CSS:</h3>
+            <p>You can apply colors to various CSS properties, such as:</p>
+            <ul>
+                <li><code class="inline">color</code> : Sets the text color.</li>
+                <li><code class="inline">background-color</code> : Sets the background color of an element.</li>
+                <li><code class="inline">border-color</code>: Sets the color of an element's border.</li>
+
+            </ul>
+            <h3>Additional Notes:</h3>
+            <ul>
+                <li>There are many online tools and resources available to help you choose and generate CSS colors.</li>
+                <li>Consider accessibility when choosing colors, ensuring sufficient contrast between text and
+                    background.</li>
+                <li>You can use different color formats within the same stylesheet.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="CSS_Box_Model">
+            <header>
+                <h2>CSS Box Model</h2>
+            </header>
+            <p>The CSS box model is a fundamental concept in web development that describes how HTML elements are
+                structured and sized on a web page. It essentially treats every HTML element as a rectangular box with
+                distinct layers that you can control with CSS. Here's a breakdown of the key components:</p>
+            <h3>Content:</h3>
+            <ul>
+                <li>This is the innermost part of the box where the actual content resides, such as text, images, or
+                    other media.</li>
+                <li>Its dimensions are determined by the <code class="inline">width</code> and <code
+                        class="inline">height</code> properties.</li>
+            </ul>
+            <h3>Padding:</h3>
+            <ul>
+                <li>The padding is the space between the content and the border.</li>
+                <li>It provides a cushion around the content and can be set for all sides or individually (top, right,
+                    bottom, left).</li>
+            </ul>
+            <h3>Border:</h3>
+            <ul>
+                <li>The border is a line that surrounds the padding and content.</li>
+                <li>It adds a visual boundary to the element and can be styled with properties like <code
+                        class="inline">border-style</code>, <code class="inline">border-width</code>, and <code
+                        class="inline">border-color</code>.</li>
+            </ul>
+            <h3>Margin:</h3>
+            <ul>
+                <li>The margin is the outermost layer, surrounding the border.</li>
+                <li>It creates space between the element and other elements on the page, preventing them from crowding
+                    together.</li>
+            </ul>
+            <h3>How it Works:</h3>
+            <ul>
+                <li>When you set the <code class="inline">width</code> and <code class="inline">height</code> of an
+                    element, you're defining the size of the content area.</li>
+                <li>Padding, border, and margin are then added to those dimensions, increasing the total size of the
+                    element.</li>
+                <li>Understanding the box model is crucial for controlling the layout and spacing of elements on your
+                    web pages.</li>
+            </ul>
+            <h3>Key Points:</h3>
+            <ul>
+                <li>The box model applies to all HTML elements.</li>
+                <li>You can control each layer (content, padding, border, margin) independently with CSS properties.
+                </li>
+                <li>The <code class="inline">box-sizing</code> property can be used to include padding and border in the
+                    element's total width and height, simplifying calculations.</li>
+                <li>Mastering the box model is essential for creating well-structured and visually appealing web
+                    layouts.</li>
+            </ul>
+            <h3>In Simple Terms:</h3>
+            <p>Imagine a cardboard box. The content is what you put inside, the padding is the packing material around
+                it, the border is the cardboard itself, and the margin is the space you leave around the box so it
+                doesn't touch other boxes.</p>
+        </section>
+        <section class="main-section" id="CSS_Flexbox">
+            <header>
+                <h2>CSS Flexbox</h2>
+            </header>
+            <p>CSS Flexbox, short for Flexible Box Layout, is a powerful tool in CSS that allows you to easily create
+                flexible and responsive layouts. Here's a brief explanation:</p>
+            <h3>Key Concepts:</h3>
+            <ul>
+                <li><b>Flex Container:</b> The parent element that holds the flex items. You make an element a flex
+                    container by setting its <code class="inline">display</code> property to <code
+                        class="inline">flex</code> or <code class="inline">inline-flex</code>.</li>
+                <li><b>Flex Items:</b> The direct children of the flex container. These are the elements that will be
+                    arranged using flexbox properties.</li>
+                <li><b>Main Axis:</b> The primary axis along which flex items are placed in the container. It can be
+                    horizontal or vertical.</li>
+                <li><b>Cross Axis:</b> The axis perpendicular to the main axis.</li>
+            </ul>
+            <h3>Key Properties:</h3>
+            <ul>
+                <li><code class="inline">flex-direction</code> : Defines the direction of the main axis (row or column).
+                </li>
+                <li><code class="inline">justify-content</code> : Aligns items along the main axis.</li>
+                <li><code class="inline">align-items</code> : Aligns items along the cross axis.</li>
+                <li><code class="inline">flex-wrap</code> : Determines whether items should wrap onto multiple lines.
+                </li>
+                <li><code class="inline">flex-grow</code> : Specifies how much a flex item should grow relative to other
+                    items.</li>
+                <li><code class="inline">flex-shrink</code> : Specifies how much a flex item should shrink relative to
+                    other items.</li>
+            </ul>
+            <h3>Benefits of Using Flexbox:</h3>
+            <ul>
+                <li><b>Easy Alignment:</b> Flexbox makes it easy to align items both horizontally and vertically.</li>
+                <li><b>Responsive Layouts:</b> Flexbox helps create layouts that adapt to different screen sizes.</li>
+                <li><b>Flexible Ordering:</b> You can easily change the order of items without changing the HTML
+                    structure.</li>
+                <li><b>Simplified Layout:</b> Flexbox simplifies the process of creating complex layouts.</li>
+            </ul>
+            <code>&lt;div class="container"&gt;
+  &lt;div class="item">Item 1&lt;/div&gt;
+  &lt;div class="item">Item 2&lt;/div&gt;
+  &lt;div class="item">Item 3&lt;/div&gt;
+&lt;/div&gt;</code>
+            <code>.container {
+  display: flex;
+  justify-content: center; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+}
+
+.item {
+  width: 100px;
+  height: 50px;
+  background-color: lightblue;
+  margin: 10px;
+}</code>
+            <p>In this example, the <code class="inline">.container</code> is the flex container, and the <code
+                    class="inline">.item</code> elements are the flex items. The <code
+                    class="inline">justify-content</code> and <code class="inline">align-items</code> properties are
+                used to center the items within the container.</p>
+            <p><b>In summary</b>, CSS Flexbox is a powerful layout tool that makes it easier to create flexible and
+                responsive web layouts. By understanding its key concepts and properties, you can take full advantage of
+                its capabilities.</p>
+        </section>
+        <section class="main-section" id="Typography">
+            <header>
+                <h2>Typography</h2>
+            </header>
+            <p>Typography in CSS is the art and technique of styling text on a webpage. It's about making your text look
+                good and easy to read. Here's a breakdown of the key aspects:</p>
+            <h3>Font Selection</h3>
+            <ul>
+                <li><code class="inline">font-family</code> : This property lets you choose the font for your text. You
+                    can specify a list of fonts, and the browser will use the first one it finds on the user's computer.
+                    It's good practice to include a generic font family (like <code class="inline">serif</code> or <code
+                        class="inline">sans-serif</code>) as a fallback.
+                    <code>body {
+  font-family: "Arial", "Helvetica", sans-serif; 
+}</code>
+                </li>
+                <li><b>Web Fonts:</b> You can also use fonts that aren't standard on most computers by linking to them
+                    from a web font service (like Google Fonts) or hosting them yourself.</li>
+            </ul>
+            <h3>Font Styling</h3>
+            <ul>
+                <li><code class="inline">font-style</code> : Use this to make text italic (<code
+                        class="inline">italic</code>), oblique (<code class="inline">oblique</code>), or normal (<code
+                        class="inline">normal</code>).</li>
+                <li><code class="inline">font-weight</code> : Controls the thickness of the font. You can use values
+                    like <code class="inline">bold</code>, <code class="inline">bolder</code>, <code
+                        class="inline">lighter</code>, or numerical values (100-900).</li>
+                <li><code class="inline">font-size</code> : Sets the size of the text. You can use pixels (<code
+                        class="inline">px</code>), ems (<code class="inline">em</code>), rems (<code
+                        class="inline">rem</code>), or percentages (<code class="inline">%</code>).</li>
+                <li><code class="inline">font-variant</code> : Lets you use small caps or other variant forms of a font.
+                </li>
+            </ul>
+            <h3>Text Properties</h3>
+            <ul>
+                <li><code class="inline">color</code> : Sets the text color. You can use named colors, hexadecimal
+                    values, RGB, or HSL.</li>
+                <li><code class="inline">text-align</code> : Aligns text to the left, right, center, or justify.</li>
+                <li><code class="inline">text-decoration</code> : Adds underlines, overlines, or strikethroughs to text.
+                </li>
+                <li><code class="inline">line-height</code> : Controls the spacing between lines of text.</li>
+                <li><code class="inline">letter-spacing</code> : Adjusts the spacing between individual letters.</li>
+                <li><code class="inline">word-spacing</code> : Adjusts the spacing between words.</li>
+            </ul>
+            <h3>Best Practices</h3>
+            <ul>
+                <li><b>Readability:</b> Choose fonts and styles that are easy to read on screen.</li>
+                <li><b>Hierarchy:</b> Use different font sizes and weights to create a visual hierarchy and guide the
+                    reader's eye.</li>
+                <li><b>Consistency:</b> Maintain a consistent typographic style throughout your website.</li>
+                <li><b>Performance:</b> Be mindful of web font sizes, as they can impact page load times.</li>
+            </ul>
+            <p><b>In essence</b>, typography in CSS is about combining these properties to create text that is both
+                visually appealing and functional, enhancing the user experience on your website.</p>
+        </section>
+        <section class="main-section" id="Accessibility">
+            <header>
+                <h2>Accessibility</h2>
+            </header>
+            <p>Accessibility in web design means creating websites that can be used by everyone, regardless of their
+                abilities or disabilities. This includes people with visual, auditory, motor, cognitive, or neurological
+                impairments.</p>
+            <h3>Key principles of accessible web design:</h3>
+            <ul>
+                <li><b>Perceivable:</b> Information and user interface elements must be presentable to users in ways
+                    they can perceive.</li>
+                <li><b>Operable:</b> Users must be able to operate the interface.</li>
+                <li><b>Understandable:</b> Users must be able to understand the interface and the information.</li>
+                <li><b>Robust:</b> Content must be robust enough that it can be interpreted reliably by a wide variety
+                    of user agents, including assistive technologies.</li>
+            </ul>
+            <h3>Examples of accessibility considerations:</h3>
+            <ul>
+                <li>Providing alternative text for images</li>
+                <li>Using sufficient color contrast</li>
+                <li>Ensuring keyboard navigation</li>
+                <li>Providing captions and transcripts for audio and video content</li>
+                <li>Using clear and concise language</li>
+                <li>Structuring content logically</li>
+            </ul>
+            <h3>Benefits of accessible web design:</h3>
+            <ul>
+                <li>Improved usability for everyone</li>
+                <li>Increased reach and audience</li>
+                <li>Compliance with legal requirements</li>
+                <li>Enhanced brand reputation</li>
+            </ul>
+            <h3>Resources for learning more about web accessibility:</h3>
+            <ul>
+                <li>Web Content Accessibility Guidelines (WCAG)</li>
+                <li>Web Accessibility Initiative (WAI)</li>
+                <li>Accessibility for Web Developers</li>
+            </ul>
+        </section>
+        <section class="main-section" id="CSS_Pseudo_Selectors_&_Elements">
+            <header>
+                <h2>CSS Pseudo Selectors & Elements</h2>
+            </header>
+            <h3>CSS Pseudo-classes</h3>
+
+            <p><b>What they are:</b> Pseudo-classes let you target and style elements based on their state or position
+                within the document. They are like adding a condition to your selector.</p>
+            <p><b>Syntax:</b> <code class="inline">selector:pseudo-class { property: value; }</code></p>
+            <p><b>Examples:</b></p>
+            <ul>
+                <li><b>:hover</b> - Styles an element when the user hovers over it with the mouse.</li>
+                <li><b>:active</b> - Styles an element while it's being clicked.</li>
+                <li><b>:focus</b> - Styles an element when it has focus (like an input field).</li>
+                <li><b>:first-child</b> - Styles the first child element within another element.</li>
+                <li><b>:nth-child(n)</b> - Styles an element based on its position among its siblings.</li>
+            </ul>
+            <h3>CSS Pseudo-elements</h3>
+            <p><b>What they are:</b> Pseudo-elements let you style specific parts of an element, rather than the element
+                as a whole. They allow you to create elements that don't actually exist in the HTML.</p>
+            <p><b>Syntax:</b> selector::pseudo-element { property: value; }</p>
+            <p><b>Examples:</b></p>
+            <ul>
+                <li><b>::before</b> - Inserts content before the selected element.</li>
+                <li><b>::after</b> - Inserts content after the selected element.</li>
+                <li><b>::first-line</b> - Styles the first line of text in an element.</li>
+                <li><b>::first-letter</b> - Styles the first letter of text in an element.</li>
+                <li><b>::selection</b> - Styles the portion of text that the user has selected.</li>
+            </ul>
+            <h3>Key Differences</h3>
+            <ul>
+                <li><b>Single vs. Double Colon:</b> Pseudo-classes use a single colon (<code class="inline">:</code>)
+                    while pseudo-elements use a double colon (<code class="inline">::</code>).</li>
+                <li><b>Targeting:</b> Pseudo-classes target states or positions of existing elements. Pseudo-elements
+                    target specific parts of an element or create entirely new, styled elements.</li>
+            </ul>
+            <h3>Why Use Them?</h3>
+            <ul>
+                <li><b>Efficiency:</b> Pseudo-elements can reduce the amount of HTML you need, making your code cleaner.
+                </li>
+                <li><b>Flexibility:</b> They give you precise control over styling, allowing for effects that would be
+                    difficult or impossible with regular CSS.</li>
+                <li><b>Interactivity:</b> Pseudo-classes make it easy to create dynamic and responsive designs that
+                    react to user actions.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Intermediate_CSS">
+            <header>
+                <h2>Intermediate CSS</h2>
+            </header>
+            <h3>CSS Position</h3>
+            <p>The <code class="inline">position</code> property in CSS controls how an element is positioned within its
+                parent container or the document. Here are the common values:</p>
+            <ul>
+                <li><b>static:</b> The default. Elements are positioned in the order they appear in the HTML.</li>
+                <li><b>relative:</b> Elements are positioned relative to their normal position. You can use properties
+                    like <code class="inline">top</code>, <code class="inline">bottom</code>, <code
+                        class="inline">left</code>, and <code class="inline">right</code> to offset the element from its
+                    original spot.</li>
+                <li><b>absolute:</b> Elements are positioned relative to their nearest positioned ancestor (an ancestor
+                    with a position other than static). If no positioned ancestor exists, it's positioned relative to
+                    the initial containing block (usually the <code class="inline">&lt;html&gt;</code> element).</li>
+                <li><b>fixed:</b> Elements are positioned relative to the viewport (the browser window). They stay in
+                    the same place even when you scroll.</li>
+                <li><b>sticky:</b> Elements are initially positioned like <code class="inline">relative</code>, but
+                    become fixed when they scroll to a specific point.</li>
+            </ul>
+            <h3>Z-index</h3>
+            <p>The <code class="inline">z-index</code> property controls the stacking order of elements that overlap. It
+                only works on positioned elements (those with a position other than static).</p>
+            <ul>
+                <li>Elements with higher <code class="inline">z-index</code> values appear in front of elements with
+                    lower values.</li>
+                <li>If elements have the same <code class="inline">z-index</code> or no <code
+                        class="inline">z-index</code> is specified, they stack in the order they appear in the HTML.
+                </li>
+            </ul>
+            <h3>Transform</h3>
+            <p>The <code class="inline">transform</code> property allows you to modify the appearance of an element
+                using various transformations:</p>
+            <ul>
+                <li><b>translate:</b> Moves an element horizontally, vertically, or both.</li>
+                <li><b>rotate:</b> Rotates an element clockwise or counterclockwise.</li>
+                <li><b>scale:</b> Increases or decreases the size of an element.</li>
+                <li><b>skew:</b> Skews an element horizontally, vertically, or both.</li>
+                <li><b>perspective:</b> Creates a 3D perspective effect.</li>
+            </ul>
+            <h3>Example</h3>
+            <code>.box {
+  position: absolute; /* Position it */
+  top: 50px; 
+  left: 100px;
+  background-color: lightblue;
+  z-index: 2; /* Make sure it's on top */
+  transform: rotate(15deg); /* Add a slight rotation */
+}</code>
+            <h3>Key Points</h3>
+            <ul>
+                <li><b>Stacking Contexts:</b> Understanding stacking contexts is crucial for complex <code
+                        class="inline">z-index</code> scenarios. Certain properties (like <code
+                        class="inline">opacity</code> less than 1 or <code class="inline">transform</code>) create new
+                    stacking contexts.</li>
+                <li><b>Performance:</b> <code class="inline">transform</code> is often hardware-accelerated, making it
+                    more performant for animations than changing properties like <code class="inline">top</code> or
+                    <code class="inline">left</code>.
+                </li>
+            </ul>
+        </section>
+        <section class="main-section" id="Responsive_Web_Design">
+            <header>
+                <h2>Responsive Web Design</h2>
+            </header>
+            <p>Responsive Web Design (RWD) is a web development approach that creates web pages that adapt to different
+                screen sizes and resolutions. It ensures that a website looks good and is easy to use on any device,
+                whether it's a desktop computer, a tablet, or a smartphone.</p>
+            <h3>Here's how it works in CSS:</h3>
+            <ol>
+                <li><b>Fluid Layouts:</b> Instead of using fixed pixel widths for elements, RWD uses relative units like
+                    percentages or viewport units (vw, vh). This allows the layout to resize and adapt to the screen
+                    width.</li>
+                <li><b>Media Queries:</b> CSS media queries allow you to apply different styles based on the
+                    characteristics of the device, such as screen width, height, orientation, or resolution. You can
+                    define breakpoints at which the layout changes to best suit the screen size.</li>
+                <li><b>Flexible Images:</b> Images are also made responsive by setting their <code
+                        class="inline">max-width</code> property to 100% and their <code class="inline">height</code>
+                    property to <code class="inline">auto</code>. This ensures that images scale down to fit their
+                    container without overflowing.</li>
+                <li><b>Mobile-First Approach:</b> A common practice in RWD is to start with the smallest screen size
+                    (mobile) and then progressively enhance the layout for larger screens. This ensures that the website
+                    is optimized for mobile users, who are often the majority of internet users.</li>
+            </ol>
+            <h3>Benefits of RWD:</h3>
+            <ul>
+                <li><b>Improved User Experience:</b> RWD provides a consistent and user-friendly experience across all
+                    devices, leading to increased engagement and satisfaction.</li>
+                <li><b>Cost-Effective:</b> Instead of creating separate websites for different devices, RWD allows you
+                    to maintain a single codebase, saving time and resources.</li>
+                <li><b>SEO Benefits:</b> Google recommends RWD as it helps improve website visibility in search results.
+                </li>
+                <li><b>Future-Proof:</b> RWD ensures that your website is adaptable to new devices and screen sizes that
+                    may emerge in the future.</li>
+            </ul>
+            <p><b>In summary</b>, Responsive Web Design is a crucial aspect of modern web development. It enables you to
+                create websites that are accessible and visually appealing to a wide range of users, regardless of the
+                device they are using.</p>
+        </section>
+        <section class="main-section" id="CSS_Variables">
+            <header>
+                <h2>CSS Variables</h2>
+            </header>
+            <p>CSS variables (also known as custom properties) are a powerful feature in CSS that allow you to define
+                and reuse values throughout your stylesheets. They work similarly to variables in programming languages,
+                enabling you to store a value in one place and then reference it multiple times in your CSS.</p>
+            <h3>Defining CSS Variables</h3>
+            <ul>
+                <li>You define a CSS variable using the following syntax:
+                    <code>:root {
+  --primary-color: #007bff;
+  --font-size: 16px;
+}</code>
+                </li>
+                <li><code class="inline">--primary-color</code> and <code class="inline">--font-size</code> are the
+                    names of your CSS variables. Notice that they start with two hyphens (<code
+                        class="inline">--</code>).</li>
+                <li><code class="inline">#007bff</code> and <code class="inline">16px</code> are the values assigned to
+                    those variables. These can be any valid CSS value (colors, sizes, fonts, etc.).</li>
+                <li><code class="inline">:</code>root` is a pseudo-class that represents the root of the document,
+                    making the variables globally accessible. You can also define variables within specific selectors to
+                    limit their scope.</li>
+            </ul>
+            <h3>Using CSS Variables</h3>
+            <ul>
+                <li>To use a CSS variable, you use the var() function:
+                    <code>body {
+  background-color: var(--primary-color);
+  font-size: var(--font-size);
+}
+
+h1 {
+  color: var(--primary-color);
+}</code>
+                </li>
+                <li>In this example, the <code class="inline">body</code> and <code class="inline">h1</code> elements
+                    will use the values stored in the <code class="inline">--primary-color</code> and <code
+                        class="inline">--font-size</code> variables.</li>
+            </ul>
+            <h3>Benefits of Using CSS Variables</h3>
+            <ul>
+                <li><b>Maintainability:</b> If you need to change a value that's used in multiple places, you only need
+                    to update it in one location (the variable definition). This makes it much easier to maintain your
+                    CSS code.</code>
+                <li><b>Reusability:</b> You can reuse the same value multiple times throughout your stylesheet, reducing
+                    redundancy and making your code more concise.</li>
+                <li><b>Dynamic Updates:</b> CSS variables can be modified dynamically using JavaScript, allowing you to
+                    change styles on the fly based on user interactions or other events.</li>
+                <li><b>Theming:</b> CSS variables make it easy to create and switch between different themes by simply
+                    changing the values of the variables.</li>
+            </ul>
+            <h3>Example</h3>
+            <p>Let's say you have a website with a primary color that you use for buttons, headings, and other elements.
+                Instead of repeating the color code everywhere, you can define a CSS variable:</p>
+            <code>:root {
+  --primary-color: #007bff;
+}
+
+button {
+  background-color: var(--primary-color);
+}
+
+h1 {
+  color: var(--primary-color);
+}</code>
+            <p>Now, if you want to change the primary color to <code class="inline">#dc3545</code>, you only need to
+                update the variable definition:</p>
+            <code>:root {
+  --primary-color: #dc3545;
+}</code>
+            <p>All the elements that use the <code class="inline">--primary-color</code> variable will automatically
+                update to the new color.</p>
+            <p><b>In summary</b>, CSS variables are a valuable tool for writing more efficient, maintainable, and
+                dynamic CSS code.</p>
+        </section>
+        <section class="main-section" id="CSS_Grid">
+            <header>
+                <h2>CSS Grid</h2>
+            </header>
+            <p>CSS Grid is a powerful layout system in CSS that allows you to create complex two-dimensional layouts for
+                your web pages. It provides a way to divide your page into rows and columns, and then place elements
+                within those grid areas.</p>
+            <h3>Here's a breakdown of the key concepts:</h3>
+            <ul>
+                <li><b>Grid Container:</b> The parent element that holds the grid items. You define it by setting <code
+                        class="inline">display: grid;</code></li>
+                <li><b>Grid Tracks:</b> The rows and columns of the grid. You define their size using <code
+                        class="inline">grid-template-columns</code> and <code class="inline">grid-template-rows</code>.
+                </li>
+                <li><b>Grid Items:</b> The direct children of the grid container that are placed within the grid.</li>
+                <li><b>Grid Lines:</b> The lines that define the boundaries of the grid tracks.</li>
+                <li><b>Grid Areas:</b> The spaces within the grid defined by grid lines. You can place grid items into
+                    specific grid areas.</li>
+            </ul>
+            <h3>CSS Grid offers many features to control the layout of your grid, including:</h3>
+            <ul>
+                <li><b>Explicit and Implicit Grids:</b> You can define a grid explicitly with <code
+                        class="inline">grid-template-columns</code> and <code class="inline">grid-template-rows</code>,
+                    or let the grid create implicit tracks as needed.</li>
+                <li><b>Fraction Units:</b> The <code class="inline">fr</code> unit allows you to distribute available
+                    space among grid tracks.</li>
+                <li><b>Gaps:</b> You can create gaps between grid tracks using <code class="inline">grid-gap</code>.
+                </li>
+                <li><b>Alignment:</b> You can align grid items within their areas using properties like <code
+                        class="inline">justify-self</code> and <code class="inline">align-self</code>.</li>
+                <li><b>Ordering:</b> You can control the order of grid items using <code class="inline">grid-area</code>
+                    or by manipulating their order in the HTML.</li>
+                <li><b>Responsiveness:</b> You can use media queries to adjust the grid layout for different screen
+                    sizes.</li>
+            </ul>
+            <p>CSS Grid is a versatile tool that can be used to create a wide variety of layouts, from simple to
+                complex. It's especially useful for creating responsive designs that adapt well to different screen
+                sizes.</p>
+        </section>
+        <section class="main-section" id="CSS_Animation">
+            <header>
+                <h2>CSS Animation</h2>
+            </header>
+            <p>CSS animation is a powerful feature that allows you to create engaging visual experiences on your website
+                without relying on JavaScript. Here's a breakdown of the key aspects:</p>
+            <h3>Defining Animations with <code class="inline">@keyframes</code></h3>
+            <ul>
+                <li>The <code class="inline">@keyframes</code> rule is the heart of CSS animation. It lets you define
+                    the different stages of your animation, specifying how an element should look at various points in
+                    time.</li>
+                <li>Think of it like creating a series of snapshots that the browser will smoothly transition between.
+                </li>
+                <li>You can define these snapshots using percentages (0% to 100%) or the keywords <code
+                        class="inline">from</code> (same as 0%) and <code class="inline">to</code> (same as 100%).</li>
+            </ul>
+            <h3>Applying Animations to Elements</h3>
+            <ul>
+                <li>Once you've defined your <code class="inline">@keyframes</code>, you can apply the animation to an
+                    HTML element using the <code class="inline">animation</code> property.</li>
+                <li>This property is actually a shorthand for several sub-properties that control different aspects of
+                    the animation:</li>
+                <ul>
+                    <li><code class="inline">animation-name</code> : Specifies the name of the <code
+                            class="inline">@keyframes</code> rule you want to use.</li>
+                    <li><code class="inline">animation-duration</code> : Sets how long the animation should take to
+                        complete one cycle.</li>
+                    <li><code class="inline">animation-timing-function</code> : Defines how the animation transitions
+                        between keyframes (e.g., linear, ease-in-out).</li>
+                    <li><code class="inline">animation-delay</code> : Sets a delay before the animation starts.</li>
+                    <li><code class="inline">animation-iteration-count</code> : Specifies how many times the animation
+                        should repeat (e.g., once, infinite).</li>
+                    <li><code class="inline">animation-direction</code> : Controls whether the animation plays forward,
+                        backward, or alternates.</li>
+                    <li><code class="inline">animation-fill-mode</code> : Determines how the element should appear
+                        before and after the animation.</li>
+                </ul>
+            </ul>
+            <h3>How It Works</h3>
+            <ul>
+                <li>When you apply an animation, the browser smoothly transitions the element's styles between the
+                    keyframes you've defined.</li>
+                <li>This creates the illusion of movement, changes in appearance, or other visual effects.</li>
+                <li>CSS animations are hardware-accelerated, meaning they can be very performant and efficient.</li>
+            </ul>
+            <h3>Example</h3>
+            <code>.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation-name: changeColor;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes changeColor {
+  from {
+    background-color: blue;
+  }
+  to {
+    background-color: red;
+  }
+}</code>
+            <p>In this example, we have a blue box that smoothly changes to red and back to blue over a 2-second period,
+                repeating infinitely.</p>
+            <h3>Benefits of CSS Animation</h3>
+            <ul>
+                <li><b>Ease of Use:</b> Simple animations can be created without needing JavaScript.</li>
+                <li><b>Performance:</b> CSS animations are often more performant than JavaScript-based animations,
+                    especially for simple effects.</li>
+                <li><b>Browser Optimization:</b> The browser can optimize CSS animations for smoother playback and
+                    better efficiency.</li>
+            </ul>
+            <h3>Use Cases</h3>
+            <p>CSS animations are great for:</p>
+            <ul>
+                <li>Loading spinners</li>
+                <li>Hover effects</li>
+                <li>Transitions</li>
+                <li>Subtle UI enhancements</li>
+            </ul>
+            <p>If you want to add some dynamic flair to your website, CSS animation is a fantastic tool to have in your
+                arsenal!</p>
+        </section>
+        <section class="main-section" id="CSS_Transforms">
+            <header>
+                <h2>CSS Transforms</h2>
+            </header>
+            <p>CSS transforms allow you to change the shape and position of HTML elements in a two-dimensional or
+                three-dimensional space. They are implemented using a set of CSS properties that let you apply affine
+                linear transformations to HTML elements. These transformations include rotation, skewing, scaling, and
+                translation both in the plane and in the 3D space.</p>
+            <h3>Here are some of the key things to know about CSS transforms:</h3>
+            <ul>
+                <li><code class="inline">transform</code> <b>property:</b> This property is used to apply a
+                    transformation to an element. It can take a variety of values, including <code
+                        class="inline">translate</code>, <code class="inline">rotate</code>, <code
+                        class="inline">scale</code>, and <code class="inline">skew</code>.</li>
+                <li><code class="inline">transform-origin</code> <b>property:</b> This property specifies the origin
+                    point for a transformation. By default, the origin is at the center of the element.</li>
+                <li><b>2D transforms:</b> These transforms are applied in the x and y axes. They can be used to create
+                    effects such as rotating an element, scaling an element, or skewing an element.</li>
+                <li><b>3D transforms:</b> These transforms are applied in the x, y, and z axes. They can be used to
+                    create more complex effects, such as creating a 3D cube or rotating an element around an axis.</li>
+            </ul>
+            <p>CSS transforms are a powerful tool that can be used to create a variety of effects on your web pages.
+                They are supported by all major browsers.</p>
+        </section>
+        <section class="main-section" id="Reference">
+            <header>
+                <h2>Reference</h2>
+            </header>
+            <ul>
+                <li>Here is additional resource <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                        target="_blank">MDN</a></li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>
